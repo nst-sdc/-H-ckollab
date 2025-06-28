@@ -6,8 +6,7 @@ import Layout from "./layout/Layout";
 
 // Pages
 import Landing from "./pages/Landing";
-import Explore from "./pages/Explore";
-// import PostProject from "./pages/PostProject";
+import Explore from "./pages/Explore"; // This is ExploreProjects
 import Messages from "./pages/Messages";
 import Profile from "./pages/Profile";
 import CreateProfile from "./pages/CreateProfile";
@@ -34,14 +33,21 @@ export default function AppRoutes() {
         }
       />
       <Route
-        path="/explore"
+        path="/explore-projects" // ✅ Updated path
         element={
           <Layout>
             <Explore />
           </Layout>
         }
       />
-      {/* <Route path="/post-project" element={<Layout><PostProject /></Layout>} /> */}
+      <Route
+        path="/post-project"
+        element={
+          <Layout>
+            <PostProjectPage />
+          </Layout>
+        }
+      />
       <Route
         path="/messages"
         element={
@@ -63,14 +69,6 @@ export default function AppRoutes() {
         element={
           <Layout>
             <CreateProfile />
-          </Layout>
-        }
-      />
-      <Route
-        path="/post-project"
-        element={
-          <Layout>
-            <PostProjectPage />
           </Layout>
         }
       />

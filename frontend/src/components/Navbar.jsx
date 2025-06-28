@@ -27,12 +27,15 @@ export default function Navbar() {
           <Link to="/" className="text-gray-400 hover:text-white transition">
             Landing
           </Link>
+
+          {/* ✅ Updated path */}
           <Link
-            to="/explore"
+            to="/explore-projects"
             className="text-gray-400 hover:text-white transition"
           >
             Explore
           </Link>
+
           <Link
             to="/my-projects"
             className="text-gray-400 hover:text-white transition"

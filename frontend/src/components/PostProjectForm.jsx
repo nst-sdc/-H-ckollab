@@ -14,11 +14,15 @@ const PostProjectForm = () => {
     maxTeamSize: "",
     deadline: "",
     tags: "",
+    openForCollab: false, // ✅ NEW
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -104,6 +108,20 @@ const PostProjectForm = () => {
                 <option>Open to all</option>
                 <option>Invite only</option>
               </select>
+            </div>
+
+            {/* ✅ Open for Collaboration checkbox */}
+            <div className="flex items-center gap-3 mt-4">
+              <input
+                type="checkbox"
+                name="openForCollab"
+                checked={formData.openForCollab}
+                onChange={handleChange}
+                className="w-5 h-5 text-blue-600 bg-gray-900 border-gray-700 rounded focus:ring-blue-500"
+              />
+              <label className="text-sm text-gray-300">
+                Open for Collaboration
+              </label>
             </div>
           </div>
 
